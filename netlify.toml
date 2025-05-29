@@ -1,9 +1,7 @@
 [template.environment]
 VITE_ANTHROPIC_API_KEY="Add your Anthropic API key here"
 
-[functions]
-  included_files = ["edge-functions/**"]
-
-[[edge_functions]]
-  path = "/blog/*"
-  function = "blog-proxy"
+[[redirects]]
+    from = "/blog/*"
+    to = "https://site-mixin-test.netlify.app/:splat"
+    status = 200
