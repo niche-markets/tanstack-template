@@ -1,9 +1,9 @@
 [template.environment]
 VITE_ANTHROPIC_API_KEY="Add your Anthropic API key here"
 
-[[redirects]]
-  from = "/blog/*"
-  to = "https://astro-sanity-blog-test.netlify.app/"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
+[functions]
+  included_files = ["edge-functions/**"]
+
+[[edge_functions]]
+  path = "/blog/*"
+  function = "blog-proxy"
