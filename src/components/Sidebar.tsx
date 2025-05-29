@@ -34,6 +34,10 @@ export const Sidebar = ({
         <PlusCircle className="w-4 h-4" />
         New Chat
       </button>
+
+      <a href="/blog">
+        blog
+      </a>
     </div>
 
     {/* Chat List */}
