@@ -3,7 +3,7 @@ VITE_ANTHROPIC_API_KEY="Add your Anthropic API key here"
 
 [[redirects]]
     from = "/blog/*"
-    to = "https://astro-sanity-blog-test.netlify.app/:splat"
-    status = 301
+    to = "https://astro-sanity-blog-test.netlify.app"
+    status = 200
     force = true
     query = {path = ":path"}
