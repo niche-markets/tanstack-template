@@ -1,7 +1,18 @@
 [template.environment]
 VITE_ANTHROPIC_API_KEY="Add your Anthropic API key here"
 
-from = "/search"
-  to = "https://astro-sanity-blog-test.netlify.app"
-  status = 200
-  force = true
+[build]
+  functions = "netlify/edge-functions"
+
+[[edge_functions]]
+  path = "/blog"
+  function = "blog-proxy"
+
+[[edge_functions]]
+  path = "/blog/*"
+  function = "blog-proxy"
+
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https://astro-sanity-blog-test.netlify.app; script-src 'self' https://astro-sanity-blog-test.netlify.app; style-src 'self' 'unsafe-inline' https://astro-sanity-blog-test.netlify.app; img-src * data: blob:;"
